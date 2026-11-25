@@ -6,9 +6,10 @@
   <title>Apex Drift — Official Support & Game Info</title>
   <style>
     :root {
-      --bg-asphalt: #08090c;
-      --card-carbon: #11141c;
-      --border-steel: #1f2533;
+      --bg-abyss: #050a14;
+      --card-deep: #0b1426;
+      --border-reef: #172847;
+      --apex-cyan: #00d4ff;
       --apex-red: #ff2a4b;
       --apex-amber: #ff9f1c;
       --text-main: #f8fafc;
@@ -21,14 +22,14 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg-asphalt);
+      background-color: var(--bg-abyss);
       background-image:
-        radial-gradient(circle at 85% 10%, rgba(255, 42, 75, 0.14), transparent 40%),
-        radial-gradient(circle at 15% 85%, rgba(255, 159, 28, 0.08), transparent 45%),
+        radial-gradient(circle at 80% 12%, rgba(0, 212, 255, 0.14), transparent 42%),
+        radial-gradient(circle at 18% 82%, rgba(255, 42, 75, 0.10), transparent 45%),
         repeating-linear-gradient(
           -45deg,
-          rgba(255, 255, 255, 0.015) 0px,
-          rgba(255, 255, 255, 0.015) 2px,
+          rgba(255, 255, 255, 0.012) 0px,
+          rgba(255, 255, 255, 0.012) 2px,
           transparent 2px,
           transparent 10px
         );
@@ -38,21 +39,20 @@
       line-height: 1.6;
     }
 
-    /* Racing curb top stripe */
     .curb-stripe {
       height: 6px;
       width: 100%;
       background: repeating-linear-gradient(
         90deg,
-        var(--apex-red) 0px,
-        var(--apex-red) 28px,
-        #ffffff 28px,
-        #ffffff 56px
+        var(--apex-cyan) 0px,
+        var(--apex-cyan) 28px,
+        #0b1426 28px,
+        #0b1426 56px
       );
     }
 
     .container {
-      max-width: 780px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 48px 24px 56px;
     }
@@ -63,9 +63,9 @@
       font-weight: 800;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--apex-amber);
-      background: rgba(255, 159, 28, 0.12);
-      border: 1px solid rgba(255, 159, 28, 0.35);
+      color: var(--apex-cyan);
+      background: rgba(0, 212, 255, 0.10);
+      border: 1px solid rgba(0, 212, 255, 0.35);
       padding: 4px 12px;
       border-radius: 999px;
       margin-bottom: 14px;
@@ -78,7 +78,7 @@
       letter-spacing: -0.03em;
       text-transform: uppercase;
       margin: 0 0 10px;
-      background: linear-gradient(90deg, #ffffff 30%, #cbd5e1 100%);
+      background: linear-gradient(90deg, #ffffff 30%, #7dd3fc 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -86,15 +86,15 @@
     .tagline {
       color: var(--text-muted);
       font-size: 1.1rem;
-      max-width: 600px;
+      max-width: 620px;
       margin: 0 0 36px;
     }
 
     .card {
-      background: var(--card-carbon);
-      border: 1px solid var(--border-steel);
-      border-left: 4px solid var(--apex-red);
-      border-radius: 12px;
+      background: var(--card-deep);
+      border: 1px solid var(--border-reef);
+      border-left: 4px solid var(--apex-cyan);
+      border-radius: 14px;
       padding: 24px 26px;
       margin-bottom: 24px;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
@@ -120,13 +120,13 @@
     .feature-box {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 8px;
+      border-radius: 10px;
       padding: 14px;
     }
 
     .feature-box strong {
       display: block;
-      color: var(--apex-amber);
+      color: var(--apex-cyan);
       font-size: 0.92rem;
       margin-bottom: 4px;
       text-transform: uppercase;
@@ -138,21 +138,84 @@
       color: var(--text-muted);
     }
 
+    /* Shark Skins Square Grid */
+    .skins-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .skin-square {
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(160deg, #101d36 0%, #070d1a 100%);
+      border: 2px solid #1e355e;
+      border-radius: 16px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      position: relative;
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .skin-square:hover {
+      transform: translateY(-3px);
+      border-color: var(--apex-cyan);
+      box-shadow: 0 10px 24px rgba(0, 212, 255, 0.18);
+    }
+
+    .skin-tag {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #cbd5e1;
+    }
+
+    .skin-tag.gold {
+      background: rgba(255, 159, 28, 0.18);
+      color: var(--apex-amber);
+    }
+
+    .skin-tag.red {
+      background: rgba(255, 42, 75, 0.18);
+      color: #ff6b81;
+    }
+
+    .shark-svg {
+      width: 84px;
+      height: 54px;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
+    }
+
+    .skin-name {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+    }
+
     .support-btn {
       display: inline-block;
       margin-top: 8px;
       padding: 12px 20px;
-      background: var(--apex-red);
-      color: #ffffff;
-      font-weight: 700;
+      background: var(--apex-cyan);
+      color: #04101f;
+      font-weight: 800;
       border-radius: 8px;
       text-decoration: none;
       letter-spacing: 0.02em;
-      transition: transform 0.15s ease, background 0.15s ease;
+      transition: transform 0.15s ease, opacity 0.15s ease;
     }
 
     .support-btn:hover {
-      background: #e01e3c;
+      opacity: 0.9;
       transform: translateY(-1px);
     }
 
@@ -160,7 +223,7 @@
       margin-top: 48px;
       font-size: 0.9rem;
       color: #64748b;
-      border-top: 1px solid var(--border-steel);
+      border-top: 1px solid var(--border-reef);
       padding-top: 20px;
       display: flex;
       justify-content: space-between;
@@ -169,7 +232,7 @@
     }
 
     footer a {
-      color: var(--apex-amber);
+      color: var(--apex-cyan);
       text-decoration: none;
       font-weight: 600;
     }
@@ -183,24 +246,24 @@
   <div class="curb-stripe"></div>
 
   <div class="container">
-    <div class="badge">iOS &amp; iPadOS Arcade Racer</div>
+    <div class="badge">iOS &amp; iPadOS Arcade Survival</div>
     <h1>Apex Drift</h1>
-    <p class="tagline">Hold the line, thread tight corners at high speed, and survive the escalation across 5 progressive circuits.</p>
+    <p class="tagline">Steer through deep-sea hazards, unlock 5 escalating levels, and push your survival run to the top of the Game Center leaderboard.</p>
 
     <div class="card">
-      <h2>Track &amp; Gameplay Specs</h2>
+      <h2>Levels &amp; Gameplay Specs</h2>
       <div class="feature-grid">
         <div class="feature-box">
-          <strong>5 Progressive Tracks</strong>
-          <span>Survive up to 135 seconds to unlock higher-speed circuits and tougher hazards.</span>
+          <strong>5 Time-Locked Levels</strong>
+          <span>Survive 100s, 115s, 125s, and 135s to unlock deeper waters, custom music, and faster hazards.</span>
         </div>
         <div class="feature-box">
           <strong>Game Center Ranks</strong>
-          <span>Compete on the global longest-run leaderboard against drivers worldwide.</span>
+          <span>Compete globally on the Longest Run leaderboard against players worldwide.</span>
         </div>
         <div class="feature-box">
-          <strong>Custom Garage</strong>
-          <span>Unlock upgrades and ad-free play with seamless StoreKit In-App Purchases.</span>
+          <strong>Shark Skins &amp; Upgrades</strong>
+          <span>Customize your shark in the skin locker and unlock ad-free play via StoreKit.</span>
         </div>
       </div>
     </div>
@@ -209,6 +272,72 @@
       <h2>Pit Crew &amp; Player Support</h2>
       <p style="color: var(--text-muted); margin-top: 0;">Need help with gameplay, restoring an In-App Purchase, or reporting a bug? Contact our support team anytime.</p>
       <a class="support-btn" href="mailto:apexdrift27@gmail.com">Email Support: apexdrift27@gmail.com</a>
+    </div>
+
+    <div class="card">
+      <h2>Shark Skins Locker</h2>
+      <p style="color: var(--text-muted); margin-top: 0; font-size: 0.95rem;">Choose your apex predator before diving into the current:</p>
+      <div class="skins-grid">
+        <!-- Skin 1: Great White -->
+        <div class="skin-square">
+          <span class="skin-tag">Starter</span>
+          <svg class="shark-svg" viewBox="0 0 120 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 38 L4 22 L12 38 L4 54 Z" fill="#64748b"/>
+            <path d="M52 24 L64 6 L74 25 Z" fill="#475569"/>
+            <path d="M14 38 C32 20, 82 18, 112 37 C86 52, 34 52, 14 38 Z" fill="#94a3b8"/>
+            <path d="M22 41 C45 50, 84 49, 110 38 C84 44, 46 44, 22 41 Z" fill="#f8fafc"/>
+            <path d="M56 43 L48 58 L66 45 Z" fill="#64748b"/>
+            <circle cx="94" cy="33" r="2.8" fill="#0f172a"/>
+            <path d="M74 32 L74 40 M78 32 L78 40 M82 32 L82 40" stroke="#334155" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span class="skin-name">Great White</span>
+        </div>
+
+        <!-- Skin 2: Neon Reef -->
+        <div class="skin-square">
+          <span class="skin-tag">Unlock</span>
+          <svg class="shark-svg" viewBox="0 0 120 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 38 L4 22 L12 38 L4 54 Z" fill="#0284c7"/>
+            <path d="M52 24 L64 6 L74 25 Z" fill="#00d4ff"/>
+            <path d="M14 38 C32 20, 82 18, 112 37 C86 52, 34 52, 14 38 Z" fill="#0ea5e9"/>
+            <path d="M22 41 C45 50, 84 49, 110 38 C84 44, 46 44, 22 41 Z" fill="#bae6fd"/>
+            <path d="M56 43 L48 58 L66 45 Z" fill="#0284c7"/>
+            <circle cx="94" cy="33" r="2.8" fill="#04101f"/>
+            <path d="M74 32 L74 40 M78 32 L78 40 M82 32 L82 40" stroke="#0369a1" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span class="skin-name">Cyber Mako</span>
+        </div>
+
+        <!-- Skin 3: Crimson Fin -->
+        <div class="skin-square">
+          <span class="skin-tag red">Pro Skin</span>
+          <svg class="shark-svg" viewBox="0 0 120 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 38 L4 22 L12 38 L4 54 Z" fill="#be123c"/>
+            <path d="M52 24 L64 6 L74 25 Z" fill="#ff2a4b"/>
+            <path d="M14 38 C32 20, 82 18, 112 37 C86 52, 34 52, 14 38 Z" fill="#e11d48"/>
+            <path d="M22 41 C45 50, 84 49, 110 38 C84 44, 46 44, 22 41 Z" fill="#ffe4e6"/>
+            <path d="M56 43 L48 58 L66 45 Z" fill="#be123c"/>
+            <circle cx="94" cy="33" r="2.8" fill="#ffffff"/>
+            <path d="M74 32 L74 40 M78 32 L78 40 M82 32 L82 40" stroke="#881337" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span class="skin-name">Crimson Tiger</span>
+        </div>
+
+        <!-- Skin 4: Apex Gold -->
+        <div class="skin-square">
+          <span class="skin-tag gold">Apex</span>
+          <svg class="shark-svg" viewBox="0 0 120 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 38 L4 22 L12 38 L4 54 Z" fill="#d97706"/>
+            <path d="M52 24 L64 6 L74 25 Z" fill="#fbbf24"/>
+            <path d="M14 38 C32 20, 82 18, 112 37 C86 52, 34 52, 14 38 Z" fill="#f59e0b"/>
+            <path d="M22 41 C45 50, 84 49, 110 38 C84 44, 46 44, 22 41 Z" fill="#fef3c7"/>
+            <path d="M56 43 L48 58 L66 45 Z" fill="#d97706"/>
+            <circle cx="94" cy="33" r="2.8" fill="#1e1b4b"/>
+            <path d="M74 32 L74 40 M78 32 L78 40 M82 32 L82 40" stroke="#92400e" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span class="skin-name">Apex Gold</span>
+        </div>
+      </div>
     </div>
 
     <footer>
